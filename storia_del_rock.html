@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genealogia del Rock: Edizione Completa & Curata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7; /* Cream/Paper */
+            color: #1F2937;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Tab Navigation Styles */
+        .nav-btn {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            opacity: 0.6;
+        }
+        .nav-btn:hover {
+            opacity: 1;
+            background-color: rgba(0,0,0,0.03);
+        }
+        .nav-btn.active {
+            opacity: 1;
+            border-bottom-color: #DC2626; /* Red-600 */
+            background-color: #FEF2F2;
+            color: #991B1B;
+            font-weight: 700;
+        }
+
+        /* Content Sections */
+        .chapter-section {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        .chapter-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Artist Card Styles */
+        .artist-card {
+            transition: transform 0.2s;
+            height: 100%; /* Uniform height */
+            display: flex;
+            flex-direction: column;
+        }
+        .artist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .card-content {
+            flex-grow: 1;
+        }
+
+        /* Tree Lines using pure CSS (No SVG) */
+        .tree-branch {
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid #E5E7EB;
+        }
+        .tree-branch::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background-color: #E5E7EB;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="bg-white sticky top-0 z-50 shadow-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 pt-6 pb-0">
+            <div class="flex justify-between items-end mb-4">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight">L'Albero del Rock</h1>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest font-semibold mt-1">Storia, Suoni e Icone</p>
+                </div>
+                <div class="hidden md:block text-right">
+                    <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded font-bold">Edizione Curata</span>
+                </div>
+            </div>
+
+            <!-- Scrollable Navigation -->
+            <nav class="flex overflow-x-auto space-x-1 md:space-x-4 pb-0 no-scrollbar text-sm md:text-base whitespace-nowrap">
+                <button onclick="openTab('chap-roots')" id="btn-chap-roots" class="nav-btn active px-4 py-3">1. Le Radici (30s-40s)</button>
+                <button onclick="openTab('chap-50s')" id="btn-chap-50s" class="nav-btn px-4 py-3">2. L'Esplosione (50s)</button>
+                <button onclick="openTab('chap-60s')" id="btn-chap-60s" class="nav-btn px-4 py-3">3. La Rivoluzione (60s)</button>
+                <button onclick="openTab('chap-70s')" id="btn-chap-70s" class="nav-btn px-4 py-3">4. L'Epoca d'Oro (70s)</button>
+                <button onclick="openTab('chap-modern')" id="btn-chap-modern" class="nav-btn px-4 py-3">5. Modernità (80s-90s)</button>
+                <button onclick="openTab('chap-tree')" id="btn-chap-tree" class="nav-btn px-4 py-3 bg-gray-50 border-l">🌳 Albero Completo</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full">
+
+        <!-- CAPITOLO 1: LE RADICI (1930-1949) -->
+        <section id="chap-roots" class="chapter-section active">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-8">
+                    <h2 class="text-4xl serif-font font-bold text-amber-900 mb-6">Prima della Tempesta</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Il Rock non nasce nel vuoto. Le sue fondamenta sono state gettate nei campi di cotone del Mississippi e nelle sale da ballo di New York. Negli anni '30 e '40, tre correnti distinte stavano preparando il terreno per la fusione nucleare del decennio successivo: il dolore del <strong>Delta Blues</strong>, il ritmo frenetico dello <strong>Swing Jazz</strong> e l'armonia bianca del <strong>Country/Folk</strong>.
+                    </p>
+                    
+                    <!-- Emblematic Artists Grid -->
+                    <h3 class="text-2xl serif-font font-bold mt-10 mb-4 border-b pb-2">I Pionieri Assoluti</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="artist-card bg-white p-5 rounded-lg shadow border border-gray-100">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Robert Johnson</h4>
+                                <span class="text-xs font-bold bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Delta Blues (1936)</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Il fantasma del blues. Ha codificato il ritmo "boogie" alla chitarra. Icona per Stones e Clapton.
+                            </p>
+                        </div>
+
+                        <div class="artist-card bg-white p-5 rounded-lg shadow border border-gray-100">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Sister Rosetta Tharpe</h4>
+                                <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-0.5 rounded">Gospel/Proto-Rock (1938)</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">
+                                La "Madrina del Rock & Roll". Suonava la chitarra elettrica distorta con passione gospel anni prima degli uomini.
+                            </p>
+                        </div>
+
+                        <div class="artist-card bg-white p-5 rounded-lg shadow border border-gray-100">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Louis Jordan</h4>
+                                <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">Jump Blues (1940s)</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">
+                                L'anello mancante tra Jazz e Rock. Ha ridotto le Big Band a piccoli combo ritmici veloci e ballabili.
+                            </p>
+                        </div>
+                         
+                         <div class="artist-card bg-white p-5 rounded-lg shadow border border-gray-100">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Hank Williams</h4>
+                                <span class="text-xs font-bold bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded">Country (1947)</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">
+                                La prima superstar Country. L'attitudine ribelle che ha ispirato il Rockabilly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Sources -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-amber-500">
+                        <h4 class="font-bold text-gray-900 uppercase tracking-wider text-sm mb-4">Fonti Esterne</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="https://www.rockhall.com/inductees/robert-johnson" target="_blank" class="text-blue-600 hover:underline">↗ Rock Hall: Robert Johnson</a></li>
+                            <li><a href="https://www.npr.org/2017/08/24/544226085/forebears-sister-rosetta-tharpe-the-godmother-of-rock-n-roll" target="_blank" class="text-blue-600 hover:underline">↗ NPR: Sister Rosetta Tharpe</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPITOLO 2: 1950s -->
+        <section id="chap-50s" class="chapter-section">
+            <h2 class="text-4xl serif-font font-bold text-red-700 mb-6">Il Big Bang: Anni '50</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Chuck Berry -->
+                <div class="artist-card bg-red-50 p-6 rounded-xl border border-red-100 text-center">
+                    <div class="w-16 h-16 bg-red-200 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🎸</div>
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold">Chuck Berry</h3>
+                        <p class="text-xs text-red-600 font-bold uppercase mb-2">The Architect</p>
+                        <p class="text-sm text-gray-600">Ha inventato il "vocabolario" della chitarra rock. Ogni riff rock successivo deve qualcosa a "Johnny B. Goode".</p>
+                    </div>
+                </div>
+
+                <!-- Elvis Presley -->
+                <div class="artist-card bg-blue-50 p-6 rounded-xl border border-blue-100 text-center">
+                    <div class="w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">👑</div>
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold">Elvis Presley</h3>
+                        <p class="text-xs text-blue-600 font-bold uppercase mb-2">The King</p>
+                        <p class="text-sm text-gray-600">Il carisma fatto persona. Ha fuso il country bianco con il blues nero portandolo alle masse globali.</p>
+                    </div>
+                </div>
+
+                <!-- Little Richard -->
+                <div class="artist-card bg-purple-50 p-6 rounded-xl border border-purple-100 text-center">
+                    <div class="w-16 h-16 bg-purple-200 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🎹</div>
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold">Little Richard</h3>
+                        <p class="text-xs text-purple-600 font-bold uppercase mb-2">The Energy</p>
+                        <p class="text-sm text-gray-600">Pianista selvaggio, voce urlata, energia pura. Ha introdotto la teatralità nel rock.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPITOLO 3: 1960s -->
+        <section id="chap-60s" class="chapter-section">
+            <h2 class="text-4xl serif-font font-bold text-indigo-700 mb-6">La Rivoluzione: Anni '60</h2>
+            <div class="prose prose-lg text-gray-600 max-w-none mb-10">
+                <p>
+                    Il Rock si divide in due: i "buoni" (melodia e pop) e i "cattivi" (blues, riff e sesso). È il decennio della <strong>British Invasion</strong>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Beatles -->
+                <div class="bg-white p-4 rounded shadow border-l-4 border-indigo-500 artist-card">
+                    <h4 class="font-bold text-lg">The Beatles</h4>
+                    <span class="text-xs bg-gray-100 px-1 rounded">Pop/Psych Rock</span>
+                    <p class="text-xs mt-2 text-gray-500">I maestri della melodia e dell'evoluzione in studio. Hanno inventato il concetto di Album come opera d'arte.</p>
+                </div>
+                
+                <!-- Rolling Stones (NEW) -->
+                <div class="bg-white p-4 rounded shadow border-l-4 border-red-700 artist-card">
+                    <h4 class="font-bold text-lg">The Rolling Stones</h4>
+                    <span class="text-xs bg-gray-100 px-1 rounded">Blues Rock / Rock & Roll</span>
+                    <p class="text-xs mt-2 text-gray-500">I "Bad Boys". Hanno mantenuto il rock sporco, ancorato al Blues di Chicago. Riff, ritmo e arroganza. L'archetipo della Rock Band.</p>
+                </div>
+
+                <!-- Hendrix -->
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white p-4 rounded shadow transform md:scale-105 z-10 artist-card">
+                    <h4 class="font-bold text-lg">Jimi Hendrix</h4>
+                    <span class="text-xs bg-white/20 px-1 rounded">Psych/Acid Rock</span>
+                    <p class="text-xs mt-2 text-gray-200">Il genio assoluto. Ha trasformato la chitarra elettrica in un generatore di suoni alieni. Padre dell'Hard Rock.</p>
+                </div>
+
+                <!-- Bob Dylan -->
+                <div class="bg-white p-4 rounded shadow border-l-4 border-green-500 artist-card">
+                    <h4 class="font-bold text-lg">Bob Dylan</h4>
+                    <span class="text-xs bg-gray-100 px-1 rounded">Folk Rock</span>
+                    <p class="text-xs mt-2 text-gray-500">Ha dato al rock un cervello. Testi poetici e politici suonati con l'elettricità.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPITOLO 4: 1970s -->
+        <section id="chap-70s" class="chapter-section">
+            <h2 class="text-4xl serif-font font-bold text-orange-700 mb-6">L'Epoca d'Oro: Anni '70</h2>
+            <div class="space-y-8">
+                <!-- Hard Rock & Metal -->
+                <div>
+                    <h3 class="text-xl font-bold border-b border-gray-300 pb-2 mb-4">I Titani dell'Hard Rock</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="artist-card bg-gray-800 text-white p-5 rounded-lg">
+                            <h4 class="font-bold text-xl text-yellow-500">Led Zeppelin</h4>
+                            <p class="text-sm text-gray-300 mt-2">La sintesi perfetta: potenza metal, groove funk e misticismo folk.</p>
+                        </div>
+                        <div class="artist-card bg-gray-900 text-white p-5 rounded-lg">
+                            <h4 class="font-bold text-xl text-gray-400">Black Sabbath</h4>
+                            <p class="text-sm text-gray-300 mt-2">I padri dell'Heavy Metal. Riff lenti, oscuri, accordature basse e atmosfere horror.</p>
+                        </div>
+                        
+                        <!-- BOWIE UPDATED -->
+                        <div class="artist-card bg-pink-50 text-gray-900 p-5 rounded-lg border border-pink-200">
+                            <h4 class="font-bold text-xl text-pink-600">David Bowie</h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <strong>Il Visionario Sonoro.</strong> Non solo Glam e immagine: con la "Trilogia di Berlino" ha portato l'elettronica sperimentale nel rock, e con il "Plastic Soul" ha sdoganato la black music per i bianchi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prog & Punk -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-blue-800 mb-2">Il Prog Rock (Tecnica)</h3>
+                        <p class="text-sm mb-3">Pink Floyd, Genesis. Suite lunghe, sintetizzatori, influenze classiche.</p>
+                        <strong class="text-blue-900">Emblema: Pink Floyd</strong>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-yellow-800 mb-2">Il Punk (Reazione)</h3>
+                        <p class="text-sm mb-3">Ramones, Sex Pistols, The Clash. Velocità, rabbia sociale, anti-tecnica.</p>
+                        <strong class="text-yellow-900">Emblema: The Ramones</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPITOLO 5: 1980s-90s -->
+        <section id="chap-modern" class="chapter-section">
+            <h2 class="text-4xl serif-font font-bold text-teal-700 mb-6">Dall'Alternativo al Grunge</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- 80s Icons -->
+                <div>
+                    <h3 class="font-bold text-gray-500 uppercase tracking-widest mb-4">Anni '80: Icone</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center bg-white p-3 shadow-sm rounded border-l-4 border-teal-500">
+                            <div class="flex-1">
+                                <span class="font-bold text-lg">The Police</span>
+                                <p class="text-xs text-gray-500">New Wave / Reggae-Rock. Hanno fuso il ritmo giamaicano con il pop sofisticato.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center bg-white p-3 shadow-sm rounded border-l-4 border-indigo-600">
+                            <div class="flex-1">
+                                <span class="font-bold text-lg">U2</span>
+                                <p class="text-xs text-gray-500">Arena Rock. Il suono "delay" di The Edge ha definito la grandiosità degli anni '80.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center bg-white p-3 shadow-sm rounded border-l-4 border-red-600">
+                            <div class="flex-1">
+                                <span class="font-bold text-lg">Metallica</span>
+                                <p class="text-xs text-gray-500">Thrash Metal. Hanno portato il metal a livelli di complessità tecnica inediti.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 90s Icons -->
+                <div>
+                    <h3 class="font-bold text-gray-500 uppercase tracking-widest mb-4">Anni '90: Icone</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center bg-gray-800 text-white p-4 shadow-lg rounded transform -rotate-1">
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <span class="font-bold text-xl text-yellow-400">Nirvana</span>
+                                    <span>🌲</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-1">Grunge. Rabbia genuina che ha spazzato via il rock patinato.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center bg-white p-3 shadow-sm rounded border-l-4 border-gray-600">
+                            <div class="flex-1">
+                                <span class="font-bold text-lg">Neil Young</span>
+                                <p class="text-xs text-gray-500">Il Padrino del Grunge. Negli anni '90 rinasce come mentore dei Pearl Jam.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center bg-white p-3 shadow-sm rounded border-l-4 border-blue-500">
+                            <div class="flex-1">
+                                <span class="font-bold text-lg">Radiohead</span>
+                                <p class="text-xs text-gray-500">Art Rock / Electronic. La decostruzione del rock classico (OK Computer).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPITOLO 6: ALBERO COMPLETO -->
+        <section id="chap-tree" class="chapter-section">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <span class="bg-green-100 text-green-700 p-2 rounded-lg mr-3 text-2xl">🌳</span> 
+                Albero Genealogico Completo
+            </h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
+                <div id="full-tree-container" class="space-y-8 min-w-[600px]">
+                    <!-- JS Rendering will happen here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-8 text-center text-sm mt-auto">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="mb-2">Infografica interattiva generata su richiesta.</p>
+            <p>Fonti principali: Rock & Roll Hall of Fame, AllMusic, Rolling Stone History of Rock.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA STRUCTURE ---
+        const fullTreeData = [
+            {
+                era: "1930s-1940s: LE RADICI (Roots)",
+                color: "border-amber-500",
+                genres: [
+                    {
+                        name: "DELTA BLUES",
+                        artists: ["Robert Johnson", "Son House", "Lead Belly"],
+                        desc: "Chitarra acustica, slide, strutture a 12 battute. L'anima dolente del sud."
+                    },
+                    {
+                        name: "SWING / JAZZ",
+                        artists: ["Duke Ellington", "Louis Jordan", "Cab Calloway"],
+                        desc: "Il ritmo saltellante e l'enfasi sul solista virtuoso."
+                    },
+                    {
+                        name: "COUNTRY / FOLK",
+                        artists: ["Hank Williams", "The Carter Family", "Woody Guthrie"],
+                        desc: "Narrazione (storytelling) e armonie vocali bianche."
+                    }
+                ]
+            },
+            {
+                era: "1950s: LA NASCITA (Rock & Roll)",
+                color: "border-red-500",
+                genres: [
+                    {
+                        name: "ROCK & ROLL",
+                        artists: ["Chuck Berry", "Little Richard", "Bo Diddley"],
+                        desc: "Riff di chitarra, ritmo veloce, testi giovanili."
+                    },
+                    {
+                        name: "ROCKABILLY",
+                        artists: ["Elvis Presley", "Carl Perkins", "Johnny Cash"],
+                        desc: "Fusione di Country e R&B. Slapback echo."
+                    }
+                ]
+            },
+            {
+                era: "1960s: BRITISH INVASION & PSYCH",
+                color: "border-indigo-500",
+                genres: [
+                    {
+                        name: "BRITISH BEAT / POP",
+                        artists: ["The Beatles", "The Kinks", "The Who"],
+                        desc: "Melodia, armonie vocali, evoluzione in studio."
+                    },
+                    {
+                        name: "BRITISH BLUES / ROCK",
+                        artists: ["The Rolling Stones", "The Yardbirds", "Cream"],
+                        desc: "Il lato duro e blues della British Invasion."
+                    },
+                    {
+                        name: "PSYCHEDELIC / ACID ROCK",
+                        artists: ["Jimi Hendrix", "Jefferson Airplane", "The Doors"],
+                        desc: "Sperimentazione sonora, distorsione, improvvisazione."
+                    },
+                     {
+                        name: "FOLK ROCK",
+                        artists: ["Bob Dylan", "The Byrds", "Neil Young"],
+                        desc: "Impegno politico e poesia elettrica."
+                    }
+                ]
+            },
+            {
+                era: "1970s: GIANTS & REBELS",
+                color: "border-orange-500",
+                genres: [
+                    {
+                        name: "HARD ROCK / METAL",
+                        artists: ["Led Zeppelin", "Black Sabbath", "Deep Purple", "AC/DC"],
+                        desc: "Riff pesanti, volumi alti."
+                    },
+                    {
+                        name: "GLAM / ART ROCK",
+                        artists: ["David Bowie", "Queen", "Roxy Music"],
+                        desc: "Teatralità, ma anche sperimentazione elettronica (Bowie) e operistica (Queen)."
+                    },
+                    {
+                        name: "PROG ROCK",
+                        artists: ["Pink Floyd", "Genesis", "Yes"],
+                        desc: "Virtuosismo e concept album."
+                    },
+                    {
+                        name: "PUNK ROCK",
+                        artists: ["Ramones", "Sex Pistols", "The Clash"],
+                        desc: "Ritorno all'essenziale. Velocità e rabbia."
+                    }
+                ]
+            },
+            {
+                era: "1980s: NEW WAVE & METAL",
+                color: "border-purple-500",
+                genres: [
+                    {
+                        name: "POST-PUNK / NEW WAVE",
+                        artists: ["The Police", "U2", "Joy Division", "The Cure", "Talking Heads"],
+                        desc: "Evoluzione del Punk con reggae, elettronica e delay."
+                    },
+                    {
+                        name: "THRASH METAL",
+                        artists: ["Metallica", "Slayer", "Megadeth"],
+                        desc: "Metal estremo e veloce."
+                    },
+                    {
+                        name: "ALT-ROCK (EARLY)",
+                        artists: ["R.E.M.", "The Smiths", "Sonic Youth"],
+                        desc: "Rock indipendente dalle major."
+                    }
+                ]
+            },
+            {
+                era: "1990s+: MODERN ERA",
+                color: "border-teal-500",
+                genres: [
+                    {
+                        name: "GRUNGE",
+                        artists: ["Nirvana", "Pearl Jam", "Soundgarden"],
+                        desc: "L'urlo di Seattle."
+                    },
+                    {
+                        name: "BRITPOP",
+                        artists: ["Oasis", "Blur"],
+                        desc: "Revival anni '60."
+                    },
+                     {
+                        name: "EXP / ELECTRONIC ROCK",
+                        artists: ["Radiohead", "Nine Inch Nails"],
+                        desc: "Fusione con la tecnologia."
+                    }
+                ]
+            }
+        ];
+
+        // --- FUNCTIONS ---
+        function renderFullTree() {
+            const container = document.getElementById('full-tree-container');
+            container.innerHTML = '';
+
+            fullTreeData.forEach(era => {
+                const eraHtml = document.createElement('div');
+                eraHtml.className = `mb-8 border-l-4 ${era.color} pl-4 md:pl-6`;
+                
+                let html = `<h3 class="text-xl font-black text-gray-800 uppercase tracking-wider mb-4 bg-gray-50 inline-block px-2 py-1">${era.era}</h3>`;
+                html += `<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">`;
+                
+                era.genres.forEach(genre => {
+                    html += `
+                        <div class="tree-branch group">
+                            <h4 class="font-bold text-lg text-gray-900 group-hover:text-red-600 transition-colors">${genre.name}</h4>
+                            <p class="text-xs text-gray-500 italic mb-1">${genre.desc}</p>
+                            <div class="text-sm font-semibold text-gray-700 mt-1">
+                                <span class="text-gray-400 text-xs font-normal uppercase mr-1">Icone:</span>
+                                ${genre.artists.join(", ")}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `</div>`;
+                eraHtml.innerHTML = html;
+                container.appendChild(eraHtml);
+            });
+        }
+
+        function openTab(tabId) {
+            document.querySelectorAll('.chapter-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFullTree();
+            openTab('chap-roots');
+        });
+    </script>
+</body>
+</html>
